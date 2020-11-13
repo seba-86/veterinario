@@ -6,19 +6,21 @@ class Pet < ApplicationRecord
   end
 
   def avg_weight
-    
+    pet_prom = pet_histories.pluck(:weight)
+    pet_prom.sum / pet_prom.size
   end
 
   def avg_height
-    #TODO-implement
+    pets_prom = pet_histories.pluck(:heigth)
+    pets_prom.sum / pets_prom.size
   end
 
   def max_weight
-    #TODO-implement
+    pet_histories.pluck(:weight).max
   end
 
   def max_height
-    #TODO-implement
+    pet_histories.pluck(:heigth).max
   end
 
 end

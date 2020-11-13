@@ -16,6 +16,34 @@
 </p>
 
 
+<tbody>
+  <strong>Pesos</strong>
+  <br>
+  <% @pet.pet_histories.each do |historial| %>
+    <tr>
+      <td><%= historial.weight %></td>
+    </tr>
+  <% end %>
+<br>
+<br>
+  <strong>Altura</strong>
+  <br>
+  <% @pet.pet_histories.each do |historial| %>
+    <tr>
+      <td><%= historial.heigth %></td>
+    </tr>
+  <% end %>
+</tbody>
+<br>
+<br>
+<strong>Historial de diagnosticos:</strong>
+  <br>
+  <% @pet.pet_histories.each do |historial| %>
+    <tr>
+      <li><%= historial.description %></li>
+    </tr>
+  <% end %>
+  <br>
 <table>
   <thead>
     <tr>
@@ -36,5 +64,6 @@
   </tbody>
 </table>
 
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
-<%= link_to 'Back', pets_path %>
+<%= link_to 'Edit', edit_pet_pet_history_path(@pet.id) %> |
+<%= link_to 'Back', root_path %>
+<%= link_to 'New registro', new_pet_pet_history_path(@pet.id)  %>

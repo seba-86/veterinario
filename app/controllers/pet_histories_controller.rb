@@ -16,19 +16,20 @@ class PetHistoriesController < ApplicationController
   # GET /pet_histories/new
   def new
     @pet_history = PetHistory.new
-    @pet = Pet.all
+    @pet = Pet.find(params[:pet_id])
   end
 
   # GET /pet_histories/1/edit
   def edit
-    @pet = Pet.all
+    
   end
 
   # POST /pet_histories
   # POST /pet_histories.json
   def create
     @pet_history = PetHistory.new(pet_history_params)
-
+    @pet_history.pet_id = params[:pet_id]
+    
     respond_to do |format|
       if @pet_history.save
         format.html { redirect_to @pet_history, notice: 'Pet history was successfully created.' }
